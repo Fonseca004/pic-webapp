@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Smart Rack Web Application
 
-## Getting Started
+This is a web application built with [Next.js](https://nextjs.org/) and deployed using [Firebase](https://firebase.google.com/).
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The Smart Rack WebApp interfaces directly with a Firebase Realtime Database. It enables communication between the user and the ESP32 microcontroller managing the Smart Rack system. The ESP32 continuously monitors the database for updates and responds accordingly, executing predefined actions based on the current system state.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+In addition, the ESP32 logs all actions under the `/logs/` path in the database, providing a comprehensive activity history and ensuring traceability of all operations.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+> _To be completed — include details such as key directories and their purposes (e.g., `pages/`, `components/`, `lib/`, etc.)._
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Running the Project Locally
 
-## Deploy on Vercel
+To run the Smart Rack WebApp on your local machine, follow these steps:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-repo/smart-rack-webapp.git
+   cd smart-rack-webapp
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Configure environment variables:**
+   - Create a `.env.local` file in the root directory.
+   - Add your Firebase project configuration values (API key, Auth Domain, etc.).
+4. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+5. **Access the app:**
+   - Open your browser and navigate to (http://localhost:3000)
