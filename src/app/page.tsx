@@ -1,10 +1,20 @@
-import Image from "next/image";
+// app/page.tsx
+import Button from "@/components/Button";
+import Weather from "@/components/Weather";
 
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center h-full">
-      <h1 className="text-3xl font-bold">Welcome to SmartRack Web App</h1>
-      <p className="mt-4">Explore features and manage your tasks.</p>
+
+      {/* Fixed position cards, layered */}
+      <div className="fixed bottom-[100px] left-0 right-0 z-20">
+        <div className="flex justify-center mb-4">
+          <Weather />
+        </div>
+        <div className="flex justify-center">
+          <Button />
+        </div>
+      </div>
     </div>
   );
 }
