@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { Select } from "antd";
 import { useRegion } from "@/components/context/RegionContext";
 
@@ -12,25 +11,35 @@ export default function Settings() {
     <div className="flex flex-col items-center justify-center h-full gap-4">
       <h1 className="text-3xl font-bold">SETTINGS</h1>
 
-      <div className="w-48">
-        {/* Label with Geist Sans font */}
-        <p 
-          className="font-semibold mb-2" 
-          style={{ fontFamily: "var(--font-geist-sans), sans-serif" }}
-        >
-          Escolha a sua região:
-        </p>
+      {/* Styled Container with label + select */}
+      <div className="w-80 md:w-96">
+        <div className="bg-white rounded-md shadow-md overflow-hidden border">
+          <div className="p-4 flex flex-col gap-2">
+            {/* Label inside the box */}
+            <label
+              htmlFor="region-select"
+              className="text-sm font-semibold text-gray-700"
+              style={{ fontFamily: "var(--font-geist-sans), sans-serif" }}
+            >
+              Escolha a sua região:
+            </label>
 
-        <Select
-          value={region}
-          onChange={(value) => setRegion(value)}
-          style={{ width: "100%" }}
-          options={[
-            { label: "Lisboa", value: "1110600" },
-            { label: "Porto", value: "1010500" },
-            { label: "Coimbra", value: "1030300" },
-          ]}
-        />
+            {/* Ant Design Select */}
+            <Select
+              id="region-select"
+              value={region}
+              onChange={(value) => setRegion(value)}
+              options={[
+                { label: "Lisboa", value: "1110600" },
+                { label: "Porto", value: "1010500" },
+                { label: "Coimbra", value: "1030300" },
+              ]}
+              className="w-full"
+              popupClassName="rounded-md shadow-md"
+              style={{ width: "100%" }}
+            />
+          </div>
+        </div>
       </div>
 
       <p>Mudar email / password</p>
