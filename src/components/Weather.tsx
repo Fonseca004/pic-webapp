@@ -1,6 +1,7 @@
 // components/Weather.tsx
 "use client";
 
+import { useRegion } from "@/components/context/RegionContext";
 import { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import {
@@ -20,12 +21,13 @@ export default function Weather() {
   const [chartData, setChartData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { region } = useRegion();
 
   useEffect(() => {
     async function fetchData() {
       try {
         const res = await fetch(
-          "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json "
+          `https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/${region}.json`
         );
 
         if (!res.ok) throw new Error("Failed to fetch weather data");
