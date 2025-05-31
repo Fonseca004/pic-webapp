@@ -119,35 +119,39 @@ export default function Weather() {
       },
     },
     scales: {
-      y: {
-        type: "linear" as const,
-        display: true,
-        position: "left" as const,
-        title: {
-          display: true,
-          text: "Temperature (°C)",
-        },
-        ticks: {
-          beginAtZero: false,
-        },
-      },
-      y1: {
-        type: "linear" as const,
-        display: true,
-        position: "right" as const,
-        title: {
-          display: true,
-          text: "Precipitation (%)",
-        },
-        grid: {
-          drawOnChartArea: false,
-        },
-        ticks: {
-          max: 100,
-          min: 0,
-        },
-      },
+  y: {
+    type: "linear" as const,
+    display: true,
+    position: "left" as const,
+    title: {
+      display: true,
+      text: "Temperature (°C)",
     },
+    ticks: {
+      beginAtZero: false,
+    },
+  },
+  y1: {
+    type: "linear" as const,
+    display: true,
+    position: "right" as const,
+    title: {
+      display: true,
+      text: "Precipitation (%)",
+    },
+    min: 0,
+    max: 100,
+    grid: {
+      drawOnChartArea: false,
+    },
+    ticks: {
+      stepSize: 20, // Optional: makes it cleaner with steps like 0, 20, 40...
+      callback: function(value) {
+        return value + "%"; // Adds % symbol
+      }
+    },
+  },
+},
   };
 
   return (

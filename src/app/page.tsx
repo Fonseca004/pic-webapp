@@ -1,6 +1,7 @@
 // app/page.tsx
 import Button from "@/components/Button";
 import Weather from "@/components/Weather";
+import WeatherCardList from "@/components/WeatherCardList";
 
 export default function Home() {
   return (
@@ -9,7 +10,7 @@ export default function Home() {
       {/* Fixed position cards, layered */}
       <div className="fixed bottom-[100px] left-0 right-0 z-20">
         <div className="flex justify-center mb-4">
-          <Weather />
+          <WeatherCardList />
         </div>
         <div className="flex justify-center">
           <Button />

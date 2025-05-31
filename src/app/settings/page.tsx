@@ -8,8 +8,8 @@ export default function Settings() {
   const { region, setRegion } = useRegion();
 
   return (
-    <div className="flex flex-col items-center justify-center h-full gap-4">
-      <h1 className="text-3xl font-bold">SETTINGS</h1>
+    <div className="flex flex-col items-center justify-center h-full p-6">
+      <h1 className="text-3xl font-bold">Settings</h1>
 
       {/* Styled Container with label + select */}
       <div className="w-80 md:w-96">
@@ -40,10 +40,16 @@ export default function Settings() {
             />
           </div>
         </div>
+
+        {/* Footnote Below Card */}
+        <p className="text-xs text-gray-400 text-center mt-3">
+          Informação meteorológica fornecida pelo IPMA.
+        </p>
       </div>
 
-      <p>Mudar email / password</p>
-      <p>Conectar ao estendal - passkey ou qr code</p>
+      {/* Other settings (commented out for now) */}
+      {/*<p>Mudar email / password</p>
+      <p>Conectar ao estendal - passkey ou qr code</p>*/}
     </div>
   );
 }
