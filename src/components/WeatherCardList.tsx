@@ -1,5 +1,7 @@
 // components/WeatherCardList.tsx
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 "use client";
 
 import { useRegion } from "@/components/context/RegionContext";

@@ -1,21 +1,19 @@
 // Button.tsx
 "use client";
 
-import Link from "next/link";
+
 import { useEffect, useState } from "react";
 import { Sun, CloudDrizzle } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+
 
 // Firebase imports
 import { database } from "@/utils/firebase"; // Adjust path accordingly
 import { ref, onValue, set } from "firebase/database";
 
 export default function Button() {
-  const pathname = usePathname();
-  const router = useRouter();
 
   const [isOpen, setIsOpen] = useState<boolean | null>(null); // null = loading
-  const [loading, setLoading] = useState(true);
+  //const [loading, setLoading] = useState(true);
 
   const dbRef = ref(database, "open");
 
@@ -24,7 +22,7 @@ export default function Button() {
     const unsubscribe = onValue(dbRef, (snapshot) => {
       const data = snapshot.val();
       setIsOpen(data);
-      setLoading(false);
+      //setLoading(false);
     });
 
     return () => unsubscribe(); // Cleanup listener

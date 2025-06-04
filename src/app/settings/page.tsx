@@ -2,7 +2,6 @@
 import { Select } from "antd";
 import { useRegion } from "@/components/context/RegionContext";
 
-const { Option } = Select;
 
 export default function Settings() {
   const { region, setRegion } = useRegion();

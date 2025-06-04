@@ -1,30 +1,31 @@
 // app/logs/page.tsx
 
+
 "use client";
 
 import { useEffect, useState } from 'react';
 import { database, ref, onValue } from '@/utils/firebase';
-import Image from "next/image";
 
 export default function LogsPage() {
   const [logs, setLogs] = useState<{ key: string; value: string }[]>([]);
 
   useEffect(() => {
-    const logsRef = ref(database, 'logs');
+  const logsRef = ref(database, 'logs');
 
-    const unsubscribe = onValue(logsRef, (snapshot) => {
-      const data = snapshot.val() || {};
-      
-      // Convert object into array of { key, value }, and sort by timestamp (descending)
-      const logList = Object.entries(data)
-        .map(([key, value]) => ({ key, value }))
-        .sort((a, b) => parseInt(b.key) - parseInt(a.key)); // newest first
+  const unsubscribe = onValue(logsRef, (snapshot) => {
+    const data = snapshot.val() || {};
+    
+    const logList = Object.entries(data)
+      .filter((entry) => typeof entry[1] === 'string')
+      .map(([key, value]) => ({ key, value: value as string }))
+      .sort((a, b) => parseInt(b.key) - parseInt(a.key));
 
-      setLogs(logList);
-    });
 
-    return () => unsubscribe(); // Cleanup listener on unmount
-  }, []);
+    setLogs(logList); // Now this works!
+  });
+
+  return () => unsubscribe(); // Cleanup listener on unmount
+}, []);
 
   return (
     <div className="flex flex-col items-center justify-center h-full p-6">

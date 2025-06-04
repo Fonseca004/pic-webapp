@@ -1,6 +1,5 @@
 // app/page.tsx
 import Button from "@/components/Button";
-import Weather from "@/components/Weather";
 import WeatherCardList from "@/components/WeatherCardList";
 
 export default function Home() {
