@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, onValue, set } from "firebase/database";
+import { getDatabase, ref, onValue, set, remove } from "firebase/database";
 import { getAnalytics, isSupported } from "firebase/analytics";
 
 // Firebase config
@@ -34,4 +34,4 @@ if (typeof window !== "undefined") {
 }
 
 // Export the initialized services
-export { app, analytics, database, ref, onValue, set };
+export { app, analytics, database, ref, onValue, set, remove };
