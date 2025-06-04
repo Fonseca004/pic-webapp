@@ -35,7 +35,11 @@ export default function Settings() {
                 { label: "Coimbra", value: "1030300" },
               ]}
               className="w-full"
-              popupClassName="rounded-md shadow-md"
+              classNames={{
+                popup: {
+                  root: 'rounded-md shadow-md'
+                }
+              }}
               style={{ width: "100%" }}
             />
           </div>
