@@ -46,7 +46,7 @@ export default function WeatherCardList() {
 
   return (
     <div className="max-w-[90%] w-full md:max-w-[600px] bg-white rounded-md shadow-md mx-4 overflow-hidden">
-      <div className="h-[calc(100vh_-_290px)] mt-8 px-2 pb-2 flex flex-col">
+      <div className="h-[calc(100vh_-_368px)] mt-8 px-2 pb-2 flex flex-col">
         {/* Header Section */}
         <div className="p-1">
           <h2 className="text-lg font-bold text-center text-gray-800">
@@ -60,11 +60,17 @@ export default function WeatherCardList() {
         {error && (
           <p className="text-center py-8 text-red-500">Error: {error}</p>
         )}
+        {loading && (
+          <p className="text-center py-8">Loading weather data...</p>
+        )}
+        {error && (
+          <p className="text-center py-8 text-red-500">Error: {error}</p>
+        )}
         {!loading && !error && weatherData.length > 0 && (
           <div>
             {/* Weather Cards */}
             <div className="space-y-2 pt-4">
-              {weatherData.map((day, index) => (
+              {weatherData.slice(0, 3).map((day, index) => (
                 <WeatherCard key={index} day={day} />
               ))}
             </div>

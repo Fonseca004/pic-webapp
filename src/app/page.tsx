@@ -1,6 +1,7 @@
 // app/page.tsx
 import Button from "@/components/Button";
 import WeatherCardList from "@/components/WeatherCardList";
+import StatusDisplay from "@/components/StatusDisplay";
 
 export default function Home() {
   return (
@@ -11,6 +12,11 @@ export default function Home() {
         <div className="flex justify-center mb-4">
           <WeatherCardList />
         </div>
+
+        <div className="flex justify-center mb-4">
+          <StatusDisplay />
+        </div>
+
         <div className="flex justify-center">
           <Button />
         </div>
@@ -18,3 +24,4 @@ export default function Home() {
     </div>
   );
 }
+
